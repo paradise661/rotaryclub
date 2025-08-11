@@ -18,6 +18,18 @@
 <meta property="article:publisher" content="" />
 <meta property="article:modified_time" content="{{ $blog->updated_at }}" />
 
+@php
+    if (!empty($blog->image)) {
+        echo '<meta property="og:image" content="' . $url . '"/>';
+        if ($blog->width) {
+            echo '<meta property="og:image:width" content="' . $width . '"/>';
+        }
+        if ($blog->height) {
+            echo '<meta property="og:image:height" content="' . $height . '"/>';
+        }
+        echo '<meta property="og:image:type" content="image/jpeg"/>';
+    }
+@endphp
 @endsection
 
 @section('content')
