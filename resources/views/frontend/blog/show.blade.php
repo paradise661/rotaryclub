@@ -20,7 +20,7 @@
 
 @php
     if (!empty($blog->image)) {
-        echo '<meta property="og:image" content="' . $url . '"/>';
+        echo '<meta property="og:image" content="' . $blog->image . '"/>';
         if ($blog->width) {
             echo '<meta property="og:image:width" content="' . $width . '"/>';
         }
