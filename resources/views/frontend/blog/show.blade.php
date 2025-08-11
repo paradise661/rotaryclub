@@ -4,6 +4,20 @@
     <title>{{ $blog->seo_title ? $blog->seo_title : $blog->title ?? 'Rotary' }}</title>
     <meta name="keywords" content="{{ $blog->meta_keywords ?? 'Rotary' }}">
     <meta name="description" content="{{ $blog->meta_description ?? 'Rotary' }}">
+
+
+
+    <meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ $title ?? '' }}" />
+@if ($blog)
+    <meta property="og:description" content="{{ $blog->description ?? '' }}" />
+@endif
+<meta property="og:url" content="{{ Request::url() }}" />
+<meta property="og:site_name" content="{{ $blog->title ?? '' }}" />
+<meta property="article:publisher" content="" />
+<meta property="article:modified_time" content="{{ $blog->updated_at }}" />
+
 @endsection
 
 @section('content')
