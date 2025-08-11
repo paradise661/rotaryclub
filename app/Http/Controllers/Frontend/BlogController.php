@@ -11,6 +11,7 @@ class BlogController extends Controller
 {
     public function index()
     {
+        dd('is working or not');
         $blogs = Blog::latest()->paginate(12);
         return view('frontend.blog.index', compact('blogs'));
     }
