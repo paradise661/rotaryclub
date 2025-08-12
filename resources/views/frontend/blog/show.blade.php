@@ -17,7 +17,6 @@
 <meta property="og:site_name" content="{{ $blog->title ?? '' }}" />
 <meta property="article:publisher" content="" />
 <meta property="article:modified_time" content="{{ $blog->updated_at }}" />
-
 @php
     if (!empty($blog->image)) {
         echo '<meta property="og:image" content="' . asset('/admin/images/blog/' . $blog->image) . '"/>';

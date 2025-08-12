@@ -2478,7 +2478,8 @@ ul {
     height: 100vh !important;
 }
 .popup-img {
-    height: 85vh !important;
+    height: 100% !important;
+    overflow: auto;
     width: 100%;
 }
 .modal-headerpopup {

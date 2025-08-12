@@ -4,8 +4,27 @@
     <title>{{ $event->seo_title ? $event->seo_title : $event->title ?? 'Rotary' }}</title>
     <meta name="keywords" content="{{ $event->meta_keywords ?? 'Rotary' }}">
     <meta name="description" content="{{ $event->meta_description ?? 'Rotary' }}">
-@endsection
 
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ $title ?? '' }}" />
+    @if ($event)
+        <meta property="og:description" content="{{ $event->description ?? '' }}" />
+    @endif
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:site_name" content="{{ $event->title ?? '' }}" />
+    <meta property="article:publisher" content="" />
+    <meta property="article:modified_time" content="{{ $event->updated_at }}" />
+    @php
+        if (!empty($event->image)) {
+            echo '<meta property="og:image" content="' . asset('/admin/images/event/' . $event->image) . '"/>';
+            echo '<meta property="og:image:width" content="1200" />';
+            echo '<meta property="og:image:height" content="630" />';
+            echo '<meta property="og:image:type" content="image/jpeg"/>';
+        }
+    @endphp
+
+@endsection
 @section('content')
     <main>
         <section class="page-header">
@@ -28,7 +47,6 @@
                 </div>
             </div>
         </section>
-
         <!--Project Details Start-->
         <section class="project-details">
             <div class="container">
@@ -93,6 +111,5 @@
             </div>
         </section>
         <!--Project Details End-->
-
     </main>
 @endsection
