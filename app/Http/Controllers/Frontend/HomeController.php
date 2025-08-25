@@ -42,7 +42,7 @@ class HomeController extends Controller
         $adds = Adds::where('inpage', 'home')->oldest('order')->get();
         $blogs = Blog::inRandomOrder()->limit(5)->get();
         $partners = Partner::where('status', 1)->oldest('order')->get();
-        return view('frontend.index', compact('sliders', 'services',  'faqs', 'testimonials', 'blogs', 'modals', 'partners', 'countries', 'achievements', 'whatwedo', 'events', 'adds'));
+        return view('frontend.index', compact('sliders', 'services', 'faqs', 'testimonials', 'blogs', 'modals', 'partners', 'countries', 'achievements', 'whatwedo', 'events', 'adds'));
     }
 
     public function about()
@@ -59,6 +59,7 @@ class HomeController extends Controller
     {
         return view('frontend.contact');
     }
+
 
     public function currentMembers()
     {

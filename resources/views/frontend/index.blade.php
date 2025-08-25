@@ -240,12 +240,14 @@
               </div>
           </section>
           <!--Become Volunteer Two End -->
-
+          @php
+          $adIndex = 0;
+          @endphp
           @if (isset($adds[$adIndex]))
               <section class="full-ads my-4">
                   <div class="container">
                       <div class="row">
-                          <img src="{{ $adds[$adIndex]->full_image ? asset('/admin/images/adds/' . $adds[$adIndex]->full_image) : asset('frontend/assets/images/blog/blog-2-2.jpg') }}"
+                          <img id="test-img" src="{{ $adds[$adIndex]->full_image ? asset('/admin/images/adds/' . $adds[$adIndex]->full_image) : asset('frontend/assets/images/blog/blog-2-2.jpg') }}"
                               alt="{{ $adds[$adIndex]->title ?? 'Advertisement Image' }}" width="100%" height="150px"
                               style="object-fit: cover;" loading="lazy">
                       </div>

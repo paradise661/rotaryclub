@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Adds;
 use App\Models\Achievement;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AchievementController extends Controller
 {
     public function index()
     {
         $projects = Achievement::oldest('order')->get();
-        return view('frontend.project.index', compact('projects'));
+        $adds = Adds::where('inpage', 'project')->oldest('order')->get();
+
+        return view('frontend.project.index', compact('projects', 'adds'));
     }
 
     public function show($slug)

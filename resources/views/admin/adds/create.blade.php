@@ -22,8 +22,8 @@
                                 <div class="row">
                                     <div class="col-md-7">
                                         <label class="form-label" for="basic-default-fullname">Name</label>
-                                        <input class="form-control @error('name') is-invalid @enderror" id=""
-                                            type="text" name="name" value="{{ old('name') }}" placeholder="">
+                                        <input class="form-control @error('name') is-invalid @enderror" id="" type="text"
+                                            name="name" value="{{ old('name') }}" placeholder="">
                                         @error('name')
                                             <div class="invalid-feedback" style="display: block;">
                                                 {{ $message }}
@@ -47,9 +47,9 @@
                                         {{-- <input class="form-control @error('inpage') is-invalid @enderror" id=""
                                             type="text" name="inpage" value="{{ old('inpage') }}" placeholder="">
                                         @error('inpage')
-                                            <div class="invalid-feedback" style="display: block;">
-                                                {{ $message }}
-                                            </div>
+                                        <div class="invalid-feedback" style="display: block;">
+                                            {{ $message }}
+                                        </div>
                                         @enderror --}}
                                     </div>
                                 </div>
@@ -59,8 +59,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label class="form-label" for="basic-default-fullname">Order</label>
-                                        <input class="form-control @error('order') is-invalid @enderror" id=""
-                                            type="number" name="order" value="{{ old('order') }}" placeholder="">
+                                        <input class="form-control @error('order') is-invalid @enderror" id="" type="number"
+                                            name="order" value="{{ old('order') }}" placeholder="">
                                         @error('order')
                                             <div class="invalid-feedback" style="display: block;">
                                                 {{ $message }}
@@ -90,8 +90,8 @@
                                         <label class="form-label" for="basic-default-message">Small Image <span
                                                 class="fw-bold">(310 x
                                                 250px)</label>
-                                        <input class="form-control @error('side_image') is-invalid @enderror image"
-                                            id="" type="file" name="side_image">
+                                        <input class="form-control @error('side_image') is-invalid @enderror image" id=""
+                                            type="file" name="side_image">
                                         <img class="view-image mt-2" src="" height="100" alt="">
                                         @error('side_image')
                                             <div class="invalid-feedback" style="display: block;">
@@ -104,9 +104,9 @@
                                         <label class="form-label" for="basic-default-message">Long Image <span
                                                 class="fw-bold">(1320 x
                                                 150px)</label>
-                                        <input class="form-control @error('full_image') is-invalid @enderror image"
-                                            id="" type="file" name="full_image">
-                                        <img class="view-image mt-2" src="" height="100" alt="">
+                                        <input class="form-control @error('full_image') is-invalid @enderror image" id=""
+                                            type="file" name="full_image">
+                                        <img class="view-image mt-2" src="" width="100%" height="100" alt="View Image" style="display:none;">
                                         @error('full_image')
                                             <div class="invalid-feedback" style="display: block;">
                                                 {{ $message }}
@@ -128,18 +128,25 @@
 @endsection
 @section('scripts')
     <script>
-        $(function() {
-            $(".image").change(function() {
-                input = this;
-                var nthis = $(this);
+        $(function () {
+            $(".image").change(function () {
+                let input = this;
+                let nthis = $(this);
+
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
-                    reader.onload = function(e) {
-                        nthis.siblings('.view-image').attr('src', e.target.result);
+                    reader.onload = function (e) {
+                        // set src and show image
+                        nthis.siblings('.view-image')
+                            .attr('src', e.target.result)
+                            .show();
                     }
                     reader.readAsDataURL(input.files[0]);
+                } else {
+                    // hide again if no file
+                    nthis.siblings('.view-image').hide();
                 }
             });
-        })
+        });
     </script>
 @endsection

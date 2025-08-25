@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Adds;
 use App\Models\Blog;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
 {
     public function index()
     {
         $blogs = Blog::latest()->paginate(12);
-        return view('frontend.blog.index', compact('blogs'));
+        $adds = Adds::where('inpage', 'blog')->oldest('order')->get();
+
+        return view('frontend.blog.index', compact('blogs', 'adds'));
     }
 
     public function show($slug)
