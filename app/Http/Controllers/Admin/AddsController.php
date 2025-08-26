@@ -12,7 +12,7 @@ use File;
 
 class AddsController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $adds = Adds::oldest('order')->paginate(12);
         return view('admin.adds.index', compact('adds'));
@@ -61,7 +61,7 @@ class AddsController extends Controller
         }
         $input['slug'] = Str::slug($request->name);
         $add->update($input);
-        return redirect()->route('admin.adds.index', $add->id)->with('message', 'Updated Successfully');
+        return redirect()->route('admin.adds.index')->with('message', 'Updated Successfully');
     }
 
     public function destroy(Adds $add)
