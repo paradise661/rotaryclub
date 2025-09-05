@@ -42,9 +42,11 @@
                             <div class="event-one__single">
                                 <div class="event-one__img-box">
                                     <div class="event-one__img">
-                                        {{-- <img src="{{ $event->image ? asset('/admin/images/event/' . $event->image) : asset('frontend/assets/images/event/event-1-1.jpg') }}"
+                                        {{-- <img
+                                            src="{{ $event->image ? asset('/admin/images/event/' . $event->image) : asset('frontend/assets/images/event/event-1-1.jpg') }}"
                                             alt="{{ $event->name ?? '' }}" height="210px"> --}}
-                                        <img src="{{ asset('admin/images/event.png') }}" alt="">
+                                        <img src="{{ asset('admin/images/event/' . $event->image) }}" alt="">
+
                                     </div>
                                     <div class="event-one__date">
                                         <div class="event-one__date-shape-1">
@@ -69,6 +71,7 @@
                                     <p class="event-one__text"><i
                                             class="fa-solid fa-calendar-days"></i>{{ date('d M -Y', strtotime($event->date)) }}
                                     </p>
+
                                     <div class="event-one__btn-box">
                                         <a class="event-one__btn" href="{{ route('event.show', $event->slug) }}"><i
                                                 class="icon-right-arrow"></i><span>Read

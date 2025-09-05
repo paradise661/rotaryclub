@@ -89,9 +89,10 @@
                                         <li class="row">
                                             <a href="{{ route('event.show', $moree->slug) }}">
                                                 <div class="col-4">
-                                                    {{-- <img src="{{ $moree->image ? asset('/admin/images/event/' . $moree->image) : asset('frontend/assets/images/blog/blog-details-img-1.jpg') }}"
+                                                    {{-- <img
+                                                        src="{{ $moree->image ? asset('/admin/images/event/' . $moree->image) : asset('frontend/assets/images/blog/blog-details-img-1.jpg') }}"
                                                         alt="{{ $moree->name ?? '' }}" style="width:95%; height:70px;"> --}}
-                                                    <img src="{{ asset('admin/images/event.png') }}"
+                                                    <img src="{{ asset('admin/images/event/' . $moree->image)  }}"
                                                         style="width:95%; height:70px;" alt="">
                                                 </div>
                                                 <div class="col-8">
