@@ -4,7 +4,7 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Member Details</h5>
+            <h5 class="mb-0">Inquiry Details</h5>
             <small class="text-muted float-end">
                 <a class="btn btn-primary" href="{{ route('admin.members.index') }}"><i class="fa-solid fa-arrow-left"></i>
                     Back</a>
@@ -15,8 +15,8 @@
                 <div class="row">
                     <div class="col-4">
                         <h5><span class="fw-bolder">Image</span>: <img class="mt-2"
-                                src="{{ asset('admin/images/member/') }}/{{ $member->image ?: 'avatar.png' }}"
-                                alt="" style="height: 320px; width:100%;">
+                                src="{{ asset('admin/images/member/') }}/{{ $member->image ?: 'avatar.png' }}" alt=""
+                                style="height: 320px; width:100%;">
                         </h5>
                     </div>
                     <div class="col-8">

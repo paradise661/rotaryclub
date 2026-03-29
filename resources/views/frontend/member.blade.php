@@ -30,31 +30,30 @@
                 <div class="description">
                     <P class="mb-3">
                         Join the Rotaract Club of Narayani Mid Town and be a part of a dynamic community dedicated to
-                        meaningful
-                        service, leadership development, and fostering connections. As a member, you'll contribute to
-                        positive
-                        change in Rotaract Club of Narayani Mid Town and beyond.
+                        meaningful service,
+                        leadership development, and fostering connections. As a member, you'll contribute to positive
+                        change in Rotaract Club of
+                        Narayani Mid Town and beyond.
                     </P>
                     <h5 class="mb-3">About Rotaract:</h5>
                     <p class="mb-3">
                         A global organization uniting young professionals and students 18-30 years old. Rotaract focuses
-                        on
-                        personal development, international networking and community service. Affiliated with Rotary
-                        International, our commitment is to create positive change on a global scale.
+                        on personal
+                        development, international networking and community service. Affiliated with Rotary
+                        International, our commitment is to
+                        create positive change on a global scale.
                     </p>
                     <h5 class="mb-3">Why To Join?</h5>
                     <ul>
                         <li class="mb-2">
                             Shape Tomorrow's Leaders: As today's youth, you'll evolve into responsible, productive
-                            members
-                            of
-                            society through the tools and skills learned in Rotaract.
+                            members of society through the
+                            tools and skills learned in Rotaract.
                         </li>
                         <li class="mb-2">
                             Global Impact: Participate in community service locally and internationally, building
-                            valuable
-                            networks
-                            and honing public, professional, and leadership skills.
+                            valuable networks and honing
+                            public, professional, and leadership skills.
                         </li>
                     </ul>
                     <h5 class="mb-3">Rotaract Club of Narayani Mid Town Highlights:</h5>
@@ -63,7 +62,7 @@
                             Established in 1st Februrary, 2007.
                         </li>
                         <li class="mb-2">
-                            16 years of active involvement in education, healthcare, environmental conservation, and
+                            18 years of active involvement in education, healthcare, environmental conservation, and
                             social
                             welfare
                             projects.
@@ -117,7 +116,7 @@
                             Time: 8:30 A.M.
                         </li>
                         <li class="mb-2">
-                            Royal Century Hotel
+                            Venue: Rotary Office Hall, Chiyaaadha Chowk, Bharatpur-10, Chitwan
                         </li>
                     </ul>
                     <p class="mb-3">
@@ -154,8 +153,8 @@
                         </div>
                         <div class="col-xl-12 col-lg-12">
                             <h4 class="contact-page__input-title">Photo</h4>
-                            <input class="form-control @error('image') is-invalid @enderror image" id=""
-                                type="file" name="image">
+                            <input class="form-control @error('image') is-invalid @enderror image" id="" type="file"
+                                name="image">
                             <img class="view-image mt-2" src="" height="100" alt="">
                             <span class="text-danger">
                                 <strong id="image-error"></strong>
@@ -174,8 +173,8 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="contact-page__input-box">
                                 <h4 class="contact-page__input-title">Permanent Address</h4>
-                                <input type="text" name="permanent_address"
-                                    placeholder="Enter your permanent address" required="">
+                                <input type="text" name="permanent_address" placeholder="Enter your permanent address"
+                                    required="">
                                 <span class="text-danger">
                                     <strong id="permanent_address-error"></strong>
                                 </span>
@@ -299,7 +298,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $('#memberform').click(function(e) {
+        $('#memberform').click(function (e) {
             e.preventDefault();
             var RegisterData = new FormData($('#registerform')[0]);
             $('#name-error').html("");
@@ -320,7 +319,7 @@
                 cache: false,
                 contentType: false,
 
-                success: function(data) {
+                success: function (data) {
                     if (data.errors) {
                         if (data.errors.name) {
                             $('#name-error').html('*' + data.errors.name[0]);
@@ -360,7 +359,7 @@
                     }
 
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.log(xhr.responseText);
                     alert("Error: " + xhr.responseText);
                 }

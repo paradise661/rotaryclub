@@ -1,11 +1,11 @@
 @extends('layouts.admin.master')
-@section('title', 'Members')
+@section('title', 'Inquiry')
 
 @section('content')
     @include('admin.includes.message')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Members ({{ $members->total() }})</h5>
+            <h5 class="mb-0">Inquiry ({{ $members->total() }})</h5>
         </div>
 
         <div class="table-responsive text-nowrap">
@@ -39,8 +39,8 @@
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-danger delete_member mr-2" id=""
-                                            data-type="confirm" type="submit" title="Delete"><i class="fa fa-trash"></i>
+                                        <button class="btn btn-sm btn-danger delete_member mr-2" id="" data-type="confirm"
+                                            type="submit" title="Delete"><i class="fa fa-trash"></i>
                                             Delete</button>
                                     </form>
                                 </td>
@@ -60,15 +60,15 @@
 
 @section('scripts')
     <script>
-        $('.delete_member').click(function(e) {
+        $('.delete_member').click(function (e) {
             e.preventDefault();
             swal({
-                    title: `Are you sure?`,
-                    text: "If you delete this, it will be gone forever.",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
+                title: `Are you sure?`,
+                text: "If you delete this, it will be gone forever.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
                 .then((willDelete) => {
                     if (willDelete) {
                         $(this).closest("form").submit();

@@ -28,6 +28,12 @@
                 </a>
             </li>
         @endif
+        <li class="menu-item {{ Request::segment(2) == 'members' ? 'active' : '' }}">
+            <a class="menu-link" href="{{ route('admin.members.index') }}">
+                <i class="menu-icon tf-icons bx bx-user-voice"></i>
+                <div data-i18n="Basic">Inquiry</div>
+            </a>
+        </li>
 
         <!-- CMS -->
         <li class="menu-header small text-uppercase"><span class="menu-header-text">CMS</span></li>
@@ -138,25 +144,22 @@
             </a>
         </li>
 
-        <li class="menu-item {{ Request::segment(2) == 'members' ? 'active' : '' }}">
-            <a class="menu-link" href="{{ route('admin.members.index') }}">
-                <i class="menu-icon tf-icons bx bx-user-voice"></i>
-                <div data-i18n="Basic">Members</div>
-            </a>
-        </li>
+       
 
-        <li class="menu-item {{ Request::segment(2) == 'inquirypersons' ? 'active' : '' }}">
+        {{-- <li class="menu-item {{ Request::segment(2) == 'inquirypersons' ? 'active' : '' }}">
             <a class="menu-link" href="{{ route('admin.inquirypersons.index') }}">
                 <i class="menu-icon tf-icons bx bx-user-voice"></i>
                 <div data-i18n="Basic">Inquiry Persons</div>
             </a>
-        </li>
+        </li> --}}
 
         <!-- General Settings  -->
-        <li class="menu-item @if (Request::segment(2) == 'pages' ||
-                Request::segment(2) == 'socialmedias' ||
-                Request::segment(2) == 'sliders' ||
-                Request::segment(2) == 'settings') {{ 'active open' }} @endif">
+        <li class="menu-item @if (
+    Request::segment(2) == 'pages' ||
+    Request::segment(2) == 'socialmedias' ||
+    Request::segment(2) == 'sliders' ||
+    Request::segment(2) == 'settings'
+) {{ 'active open' }} @endif">
             <a class="menu-link menu-toggle" href="javascript:void(0)">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
                 <div data-i18n="General Setting">Settings</div>
