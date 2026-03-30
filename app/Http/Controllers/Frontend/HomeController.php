@@ -151,7 +151,7 @@ class HomeController extends Controller
         $data['image'] = $imagePath;
 
         Member::create($data);
-        return response()->json(['success' => 'Thank you, your booking has been submitted successfully.']);
+        return response()->json(['success' => 'Thank you, your membership request has been submitted successfully.']);
     }
     public function fileUpload(Request $request, $name)
     {
